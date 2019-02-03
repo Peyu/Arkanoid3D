@@ -29,9 +29,17 @@ public class Ball : MonoBehaviour
             rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
         }
     
-        if (ballInPlay == true) {
-            vel = rb.velocity;    
-        }
+        
 
     }
+
+	void FixedUpdate()
+	{
+
+
+	}
+
+
+
+
 }
