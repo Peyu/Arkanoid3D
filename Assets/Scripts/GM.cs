@@ -74,6 +74,8 @@ public class GM : MonoBehaviour {
 		Destroy(clonePaddle);
 		Invoke ("SetupPaddle", resetDelay);
 		CheckGameOver();
+		FindObjectOfType<AudioManager>().Play("Destroyed");
+
 	}
 	
 	void SetupPaddle()

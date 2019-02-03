@@ -21,6 +21,8 @@ public class Paddle : MonoBehaviour
         //new vector (x,y,z).  EN este caso no quiero que se mueva sobre ejes Y ni Z, siempre tendran esos valores
         playerPos = new Vector3(Mathf.Clamp(xPos, -8.5f, 8.5f), -9.5f, 0f);
         transform.position = playerPos;
+					
+	}
 
-    }
+
 }

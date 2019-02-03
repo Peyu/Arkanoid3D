@@ -27,16 +27,25 @@ public class Ball : MonoBehaviour
             ballInPlay = true;
             rb.isKinematic = false;
             rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
-        }
-    
-        
+        }       
 
     }
 
-	void FixedUpdate()
+	void OnCollisionEnter (Collision other)
 	{
+		if (other.gameObject.tag == "Brick") {
+			FindObjectOfType<AudioManager>().Play("Pong");
+		}
+	
+		if (other.gameObject.tag == "Paddle") {
+			FindObjectOfType<AudioManager>().Play("Ping");
+		}
 
+		if (other.gameObject.tag == "Wall") {
+			FindObjectOfType<AudioManager>().Play("Pong");
+		}
 
+				
 	}
 
 
