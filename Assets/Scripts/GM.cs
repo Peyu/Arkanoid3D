@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GM : MonoBehaviour {
 	
 	public int lives = 3;
-	public int bricks = 24;
+	public int bricks = 1;
 	public float resetDelay = 1f;
 	public Text livesText;
 	public GameObject gameOver;
@@ -14,19 +14,34 @@ public class GM : MonoBehaviour {
 	public GameObject paddle;
 	public GameObject deathParticles;
 	public static GM instance = null;
-	
 	private GameObject clonePaddle;
-	
+
+
+	//Control del gate1
+	public GameObject roof1_R;
+	public GameObject roof1_L;
+	public GameObject roof1_R_Stop;
+	public GameObject roof1_L_Stop;
+	private float step;
+	public float gateSpeed = 1f;
+	public bool open = false;
+
+
+
+
 	// Use this for initialization
 	void Awake () 
 	{
+		step = gateSpeed * Time.deltaTime;
+
 		if (instance == null)
 			instance = this;
 		else if (instance != this)
 			Destroy (gameObject);
 		
 		Setup();
-		
+	
+
 	}
 	
 	public void Setup()
@@ -38,15 +53,33 @@ public class GM : MonoBehaviour {
 
 
 	}
+
+	void Update(){
+		if (open) {
+			roof1_R.transform.localPosition = Vector3.MoveTowards (roof1_R.transform.localPosition, roof1_R_Stop.transform.localPosition, step);
+			roof1_L.transform.localPosition = Vector3.MoveTowards (roof1_L.transform.localPosition, roof1_L_Stop.transform.localPosition, step);
+		}
+
+
+
+
+	}
+
+
+
+
 	
 	void CheckGameOver()
 	{
 		if (bricks < 1)
 		{
-			youWon.SetActive(true);
+			//youWon.SetActive(true);
 			//Esto va a generar un efecto de slowMotion
-			Time.timeScale = .25f;
-			Invoke ("Reset", resetDelay);
+			//Time.timeScale = .25f;
+			//Invoke ("Reset", resetDelay);
+			open = true;
+
+
 		}
 		
 		if (lives < 1)
@@ -58,7 +91,7 @@ public class GM : MonoBehaviour {
 		}
 		
 	}
-	
+
 	void Reset()
 	{
 		Time.timeScale = 1f;
