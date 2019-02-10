@@ -11,8 +11,7 @@ public class Paddle : MonoBehaviour
     }
 
     public float paddleSpeed = 1f;
-    public GameObject paddlePos;
-
+    
 	private Vector3 playerPos = new Vector3(0, -9.5f, 0);
 
 	public void SetPlayerPosY(float y){

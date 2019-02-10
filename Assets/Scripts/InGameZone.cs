@@ -32,7 +32,7 @@ public class InGameZone : MonoBehaviour {
 			clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
 			Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	
 			paddleScript.SetPlayerPosY(12f);
-
+			GM.instance.setPaddlePos(11.8f);
 			//water = GameObject.FindGameObjectsWithTag("Water")[0];
 			//DeadZone waterScript = (DeadZone) water.GetComponent(typeof(DeadZone));	
 			//waterScript.SetPositionY(-1f);

@@ -28,7 +28,7 @@ public class GM : MonoBehaviour {
 
 
 	//Control paddle
-	public Vector3 paddlePos;
+	public GameObject paddlePos;
 
 
 	// Use this for initialization
@@ -43,15 +43,26 @@ public class GM : MonoBehaviour {
 		
 		Setup();
 
+		paddlePos.transform.position = new Vector3 (0f, -9.5f, 0f);
 
 	}
-	
+
+
+	public void setPaddlePos(float y){
+		paddlePos.transform.position = new Vector3 (0f, y, 0f);
+		
+	}
+
+
+
+
+
 	public void Setup()
 	{
 		//Se inicializa la paleta en transform.positin del GM, es decir 0,0,0.  Quaterinon identity significa
 		//que no puede rotar
 
-		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+		clonePaddle = Instantiate(paddle, paddlePos.transform.position, Quaternion.identity) as GameObject;
 		Instantiate(bricksPrefab, new Vector3(-0.1f,1f,0f), Quaternion.identity);
 		clonePaddle.name = "paleta";
 		//paddlePos = clonePaddle.transform.position;
@@ -113,10 +124,9 @@ public class GM : MonoBehaviour {
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
 
-		//clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
-		//Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	
-		//paddleScript.SetPlayerPosY(-7.5f);
-
+		clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
+		Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	
+		paddleScript.SetPlayerPosY(paddlePos.transform.position.y);
 
 	}
 	
