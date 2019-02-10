@@ -11,6 +11,7 @@ public class GM : MonoBehaviour {
 	public GameObject gameOver;
 	public GameObject youWon;
 	public GameObject bricksPrefab;
+	public GameObject bricksPrefab2;
 	public GameObject paddle;
 	public GameObject deathParticles;
 	public static GM instance = null;
@@ -80,16 +81,27 @@ public class GM : MonoBehaviour {
 	
 	void CheckGameOver()
 	{
-		if (bricks < 1)
+		if (bricks == 29)
 		{
 			//youWon.SetActive(true);
 			//Esto va a generar un efecto de slowMotion
 			//Time.timeScale = .25f;
 			//Invoke ("Reset", resetDelay);
 			open = true;
-
+			Instantiate(bricksPrefab2, new Vector3(-0.1f,21.9f,0f), Quaternion.identity);
 
 		}
+		if (bricks < 1)
+		{
+			youWon.SetActive(true);
+			//Esto va a generar un efecto de slowMotion
+			Time.timeScale = .25f;
+			//Invoke ("Reset", resetDelay);
+					
+			
+		}
+
+
 		
 		if (lives < 1)
 		{

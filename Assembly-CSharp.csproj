@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
+     <Compile Include="Assets\Scripts\BlueBrick.cs" />
      <Compile Include="Assets\Scripts\Bricks.cs" />
      <Compile Include="Assets\Scripts\DeadZone.cs" />
      <Compile Include="Assets\Scripts\GM.cs" />
