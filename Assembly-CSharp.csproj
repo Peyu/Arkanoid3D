@@ -51,8 +51,8 @@
      <Compile Include="Assets\Scripts\Bricks.cs" />
      <Compile Include="Assets\Scripts\DeadZone.cs" />
      <Compile Include="Assets\Scripts\GM.cs" />
-     <Compile Include="Assets\Scripts\Gate.cs" />
      <Compile Include="Assets\Scripts\InGameZone.cs" />
+     <Compile Include="Assets\Scripts\NormalTimeTrigger.cs" />
      <Compile Include="Assets\Scripts\Paddle.cs" />
      <Compile Include="Assets\Scripts\Sound.cs" />
      <Compile Include="Assets\Scripts\TimedDestroy.cs" />

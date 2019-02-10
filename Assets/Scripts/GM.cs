@@ -27,6 +27,8 @@ public class GM : MonoBehaviour {
 	public bool open = false;
 
 
+	//Control paddle
+	public Vector3 paddlePos;
 
 
 	// Use this for initialization
@@ -40,7 +42,7 @@ public class GM : MonoBehaviour {
 			Destroy (gameObject);
 		
 		Setup();
-	
+
 
 	}
 	
@@ -48,11 +50,13 @@ public class GM : MonoBehaviour {
 	{
 		//Se inicializa la paleta en transform.positin del GM, es decir 0,0,0.  Quaterinon identity significa
 		//que no puede rotar
+
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
 		Instantiate(bricksPrefab, new Vector3(-0.1f,1f,0f), Quaternion.identity);
-
-
+		clonePaddle.name = "paleta";
+		//paddlePos = clonePaddle.transform.position;
 	}
+
 
 	void Update(){
 		if (open) {
@@ -60,13 +64,7 @@ public class GM : MonoBehaviour {
 			roof1_L.transform.localPosition = Vector3.MoveTowards (roof1_L.transform.localPosition, roof1_L_Stop.transform.localPosition, step);
 		}
 
-
-
-
 	}
-
-
-
 
 	
 	void CheckGameOver()
@@ -110,10 +108,16 @@ public class GM : MonoBehaviour {
 		FindObjectOfType<AudioManager>().Play("Destroyed");
 
 	}
-	
+
 	void SetupPaddle()
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+
+		//clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
+		//Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	
+		//paddleScript.SetPlayerPosY(-7.5f);
+
+
 	}
 	
 	public void DestroyBrick()

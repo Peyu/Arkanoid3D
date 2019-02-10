@@ -10,6 +10,13 @@ public class DeadZone : MonoBehaviour {
 	//	GM.instance.LoseLife();
 	//}
 
+	public void SetPositionY(float y){
+		gameObject.transform.position.Set(gameObject.transform.position.x, y, 0f);
+
+	}
+
+
+
 	void OnTriggerEnter (Collider col)
 	{
 		Instantiate(DeathParticles, transform.position, Quaternion.identity);

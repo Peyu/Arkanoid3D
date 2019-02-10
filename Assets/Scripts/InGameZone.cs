@@ -5,12 +5,17 @@ public class InGameZone : MonoBehaviour {
 
 	public GameObject cam;
 	public GameObject newCameraPos;
-	private float step;
+	//private float step;
 	public float gateSpeed = 1f;
-	public bool dentro = false;
+	//Posicion de Paleta
+	private GameObject clonePaddle;
+	public GameObject paddle;
+	public GameObject water;
+	public GameObject GameManag;
 
 	void Awake(){
-		step = gateSpeed * Time.deltaTime;
+		//step = gateSpeed * Time.deltaTime;
+
 	}
 
 
@@ -19,9 +24,24 @@ public class InGameZone : MonoBehaviour {
 		
 		if(col.gameObject.name.Contains("Ball"))
 		{
-			//camera.transform.position = Vector3.MoveTowards (camera.transform.position, newCameraPos.transform.position, step);
-			//cam.transform.position.Set (0f,21f,0f);
-			dentro = true;
+			Time.timeScale = .25f;
+			cam.transform.position = new Vector3(newCameraPos.transform.position.x, newCameraPos.transform.position.y, newCameraPos.transform.position.z);
+			water.transform.position = new Vector3(water.transform.position.x, 9f,0f);
+
+
+			clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
+			Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	
+			paddleScript.SetPlayerPosY(12f);
+
+			//water = GameObject.FindGameObjectsWithTag("Water")[0];
+			//DeadZone waterScript = (DeadZone) water.GetComponent(typeof(DeadZone));	
+			//waterScript.SetPositionY(-1f);
+
+
+
+			Destroy( gameObject);
+
+
 		}
 		
 	}
