@@ -3,20 +3,26 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GM : MonoBehaviour {
-	
-	public int lives = 3;
+
+	//Control de ladrillos
 	public int bricks = 1;
-	public float resetDelay = 1f;
+	public int bricksToOpen;
+	public GameObject brickPos1;
+	public GameObject brickPos2;
+	public GameObject bricksPrefab;
+	public GameObject bricksPrefab2;
+
+	//Control de canvas
+	public int lives = 3;
 	public Text livesText;
 	public GameObject gameOver;
 	public GameObject youWon;
-	public GameObject bricksPrefab;
-	public GameObject bricksPrefab2;
+
+	//Control de paleta
 	public GameObject paddle;
 	public GameObject deathParticles;
-	public static GM instance = null;
 	private GameObject clonePaddle;
-
+	public GameObject paddlePos;
 
 	//Control del gate1
 	public GameObject roof1_R;
@@ -25,11 +31,14 @@ public class GM : MonoBehaviour {
 	public GameObject roof1_L_Stop;
 	private float step;
 	public float gateSpeed = 1f;
-	public bool open = false;
+	private bool open = false;
+
+	//Control general del juego
+	public float resetDelay = 1f;
+	public static GM instance = null;
 
 
-	//Control paddle
-	public GameObject paddlePos;
+
 
 
 	// Use this for initialization
@@ -64,7 +73,7 @@ public class GM : MonoBehaviour {
 		//que no puede rotar
 
 		clonePaddle = Instantiate(paddle, paddlePos.transform.position, Quaternion.identity) as GameObject;
-		Instantiate(bricksPrefab, new Vector3(-0.1f,1f,0f), Quaternion.identity);
+		Instantiate(bricksPrefab, brickPos1.transform.position, Quaternion.identity);
 		clonePaddle.name = "paleta";
 		//paddlePos = clonePaddle.transform.position;
 	}
@@ -81,14 +90,17 @@ public class GM : MonoBehaviour {
 	
 	void CheckGameOver()
 	{
-		if (bricks == 29)
+		//  HingeJoint[] hinges = GetComponents<HingeJoint>();
+
+
+		if (bricks == bricksToOpen )
 		{
 			//youWon.SetActive(true);
 			//Esto va a generar un efecto de slowMotion
 			//Time.timeScale = .25f;
 			//Invoke ("Reset", resetDelay);
 			open = true;
-			Instantiate(bricksPrefab2, new Vector3(-0.1f,21.9f,0f), Quaternion.identity);
+			Instantiate(bricksPrefab2, brickPos2.transform.position, Quaternion.identity);
 
 		}
 		if (bricks < 1)
@@ -134,7 +146,7 @@ public class GM : MonoBehaviour {
 
 	void SetupPaddle()
 	{
-		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+		clonePaddle = Instantiate(paddle, paddlePos.transform.position, Quaternion.identity) as GameObject;
 
 		clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
 		Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	

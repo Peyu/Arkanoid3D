@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\GM.cs" />
      <Compile Include="Assets\Scripts\InGameZone.cs" />
      <Compile Include="Assets\Scripts\NormalTimeTrigger.cs" />
+     <Compile Include="Assets\Scripts\OrangeBrick.cs" />
      <Compile Include="Assets\Scripts\Paddle.cs" />
      <Compile Include="Assets\Scripts\Sound.cs" />
      <Compile Include="Assets\Scripts\TimedDestroy.cs" />

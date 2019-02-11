@@ -12,6 +12,8 @@ public class InGameZone : MonoBehaviour {
 	public GameObject paddle;
 	public GameObject water;
 	public GameObject GameManag;
+	public GameObject paddlePos;
+
 
 	void Awake(){
 		//step = gateSpeed * Time.deltaTime;
@@ -27,12 +29,13 @@ public class InGameZone : MonoBehaviour {
 			Time.timeScale = .25f;
 			cam.transform.position = new Vector3(newCameraPos.transform.position.x, newCameraPos.transform.position.y, newCameraPos.transform.position.z);
 			water.transform.position = new Vector3(water.transform.position.x, 9f,0f);
+			paddlePos.transform.position = new Vector3(0f,11.5f,0f);
 
 
 			clonePaddle = GameObject.FindGameObjectsWithTag("Paddle")[0];
 			Paddle paddleScript = (Paddle) clonePaddle.GetComponent(typeof(Paddle));	
-			paddleScript.SetPlayerPosY(12f);
-			GM.instance.setPaddlePos(11.8f);
+			paddleScript.SetPlayerPosY(paddlePos.transform.position.y);
+			GM.instance.setPaddlePos(paddlePos.transform.position.y);
 			//water = GameObject.FindGameObjectsWithTag("Water")[0];
 			//DeadZone waterScript = (DeadZone) water.GetComponent(typeof(DeadZone));	
 			//waterScript.SetPositionY(-1f);
