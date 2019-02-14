@@ -38,9 +38,6 @@ public class GM : MonoBehaviour {
 	public static GM instance = null;
 
 
-
-
-
 	// Use this for initialization
 	void Awake () 
 	{
@@ -54,9 +51,6 @@ public class GM : MonoBehaviour {
 		Setup();
 		Time.timeScale = 1f;
 		paddlePos.transform.position = new Vector3 (0f, -9.5f, 0f);
-
-		 
-
 
 
 	}
@@ -73,9 +67,6 @@ public class GM : MonoBehaviour {
 		paddlePos.transform.position = new Vector3 (0f, y, 0f);
 		
 	}
-
-
-
 
 
 	public void Setup()
@@ -102,14 +93,9 @@ public class GM : MonoBehaviour {
 	void CheckGameOver()
 	{
 		//  HingeJoint[] hinges = GetComponents<HingeJoint>();
-
-
+		
 		if (bricks == bricksToOpen )
 		{
-			//youWon.SetActive(true);
-			//Esto va a generar un efecto de slowMotion
-			//Time.timeScale = .25f;
-			//Invoke ("Reset", resetDelay);
 			open = true;
 			Instantiate(bricksPrefab2, brickPos2.transform.position, Quaternion.identity);
 
@@ -120,8 +106,12 @@ public class GM : MonoBehaviour {
 			//Esto va a generar un efecto de slowMotion
 			Time.timeScale = .25f;
 			//Invoke ("Reset", resetDelay);
-			Invoke ("NextLevel", resetDelay);		
-			
+
+			if(Application.loadedLevelName == "Scene01"  )
+				Invoke ("LoadLevel02", resetDelay);		
+			if(Application.loadedLevelName == "Scene02"  )
+				Invoke ("LoadLevel00", resetDelay);
+
 		}
 
 		
@@ -135,7 +125,11 @@ public class GM : MonoBehaviour {
 		
 	}
 
-	void NextLevel(){
+	void LoadLevel00(){
+		Application.LoadLevel("Scene00");
+	}
+
+	void LoadLevel02(){
 		Application.LoadLevel("Scene02");
 	}
 
@@ -144,7 +138,7 @@ public class GM : MonoBehaviour {
 		Time.timeScale = 1f;
 		//Cuando se termine el nivel se va a volver a lodear
 		StoredVar.lives = 5;
-		Application.LoadLevel("Scene01");
+		Application.LoadLevel("Scene00");
 	}
 	
 	public void LoseLife()

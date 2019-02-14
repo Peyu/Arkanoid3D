@@ -47,12 +47,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AudioManager.cs" />
+     <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\BlueBrick.cs" />
      <Compile Include="Assets\Scripts\Bricks.cs" />
      <Compile Include="Assets\Scripts\DeadZone.cs" />
      <Compile Include="Assets\Scripts\GM.cs" />
      <Compile Include="Assets\Scripts\InGameZone.cs" />
+     <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\NormalTimeTrigger.cs" />
      <Compile Include="Assets\Scripts\OrangeBrick.cs" />
      <Compile Include="Assets\Scripts\Paddle.cs" />

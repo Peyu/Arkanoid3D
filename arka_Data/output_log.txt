@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Unity Workspace/Arkanoid3D/arka_Data/Managed'
 Mono path[1] = 'C:/Unity Workspace/Arkanoid3D/arka_Data/Mono'
 Mono config path = 'C:/Unity Workspace/Arkanoid3D/arka_Data/Mono/etc'
 PlayerConnection initialized from C:/Unity Workspace/Arkanoid3D/arka_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55158
-Multi-casting "[IP] 192.168.100.5 [Port] 55158 [Flags] 2 [Guid] 1117802413 [EditorId] 3403555292 [Version] 1048832 [Id] WindowsPlayer(Peyu-Laptop) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.100.5:55158]
+PlayerConnection initialized network socket : 0.0.0.0 55283
+Multi-casting "[IP] 192.168.100.3 [Port] 55283 [Flags] 2 [Guid] 2925927242 [EditorId] 1497199935 [Version] 1048832 [Id] WindowsPlayer(Peyu-Laptop) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.100.3:55283]
 Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -24,11 +24,43 @@ Loading C:\Unity Workspace\Arkanoid3D\arka_Data\Managed\UnityEngine.Networking.d
 Platform assembly: C:\Unity Workspace\Arkanoid3D\arka_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Unity Workspace\Arkanoid3D\arka_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 Platform assembly: C:\Unity Workspace\Arkanoid3D\arka_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.093 seconds
+- Completed reload, in  0.078 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Unity Workspace\Arkanoid3D\arka_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1420 -> priority: 1 
+  Thread -> id: a24 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.655318 ms
+System memory in use before: 33.9 MB.
+System memory in use after: 33.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 197.
+Total: 0.463971 ms (FindLiveObjects: 0.030788 ms CreateObjectMapping: 0.023091 ms MarkObjects: 0.369466 ms  DeleteObjects: 0.038486 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.650843 ms
+System memory in use before: 63.7 MB.
+System memory in use after: 63.7 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 510.
+Total: 0.347658 ms (FindLiveObjects: 0.031644 ms CreateObjectMapping: 0.022236 ms MarkObjects: 0.282231 ms  DeleteObjects: 0.010262 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.340600 ms
+System memory in use before: 63.9 MB.
+System memory in use after: 63.9 MB.
+
+Unloading 191 unused Assets to reduce memory usage. Loaded Objects now: 723.
+Total: 0.625613 ms (FindLiveObjects: 0.059012 ms CreateObjectMapping: 0.063288 ms MarkObjects: 0.436176 ms  DeleteObjects: 0.065426 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.570233 ms
+System memory in use before: 63.8 MB.
+System memory in use after: 63.9 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 723.
+Total: 0.450287 ms (FindLiveObjects: 0.047893 ms CreateObjectMapping: 0.045328 ms MarkObjects: 0.343809 ms  DeleteObjects: 0.012401 ms)
+
