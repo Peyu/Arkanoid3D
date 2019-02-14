@@ -14,7 +14,10 @@ public class LoadLevel : MonoBehaviour {
 		
 		Application.LoadLevel("Scene02");
 	}
-
+	public void End(){
+		
+		Application.Quit();
+	}
 
 
 }
