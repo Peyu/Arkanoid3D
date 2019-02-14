@@ -15,6 +15,7 @@ public class GM : MonoBehaviour {
 	//Control de canvas
 	private int lives;
 	public Text livesText;
+	public Text pointsText;
 	public GameObject gameOver;
 	public GameObject youWon;
 
@@ -58,6 +59,7 @@ public class GM : MonoBehaviour {
 	void Start(){
 		lives = StoredVar.lives;
 		livesText.text = "Lives: " + lives;
+		pointsText.text = "Puntos: " + StoredVar.points;
 		FindObjectOfType<AudioManager>().Play("Theme");
 	
 	}
@@ -97,8 +99,10 @@ public class GM : MonoBehaviour {
 		if (bricks == bricksToOpen )
 		{
 			open = true;
-			Instantiate(bricksPrefab2, brickPos2.transform.position, Quaternion.identity);
-
+			if(GameObject.Find("bricks2") == null ){
+				Instantiate(bricksPrefab2, brickPos2.transform.position, Quaternion.identity);
+				bricksPrefab2.name = "bricks2";
+			}
 		}
 		if (bricks < 1)
 		{
@@ -145,7 +149,7 @@ public class GM : MonoBehaviour {
 	{
 		lives--;
 		StoredVar.lives --;
-		livesText.text = "Lives: " + lives;
+		livesText.text = "Vidas: " + lives;
 		Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
 		Destroy(clonePaddle);
 		Invoke ("SetupPaddle", resetDelay);
@@ -167,6 +171,8 @@ public class GM : MonoBehaviour {
 	public void DestroyBrick()
 	{
 		bricks--;
+		StoredVar.points += 10;
+		pointsText.text = "Puntos: " + StoredVar.points;
 		CheckGameOver();
 	}
 } 
