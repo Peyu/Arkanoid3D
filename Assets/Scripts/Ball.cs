@@ -4,18 +4,19 @@ using System.Collections;
 public class Ball : MonoBehaviour
 {
 
-    public float ballInitialVelocity = 600f;
+    public float ballInitialVelocity = 1200f;
 
 
     private Rigidbody rb;
     private bool ballInPlay;
-    public Vector3 vel;
+	[Range(0f,100f)]
+	public float speed; 
 
     void Awake() //se llama antes que el start
     {
 
         rb = GetComponent<Rigidbody>();
-        
+		speed = 15;
     }
 
     //Se usa update y no fixedupdate porque no se desea que se updatee la velocidad todo el tiempo.
@@ -28,6 +29,8 @@ public class Ball : MonoBehaviour
             rb.isKinematic = false;
             rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
         }       
+
+			rb.velocity = speed * (rb.velocity.normalized);
 
     }
 
