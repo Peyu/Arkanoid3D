@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\OrangeBrick.cs" />
      <Compile Include="Assets\Scripts\Paddle.cs" />
      <Compile Include="Assets\Scripts\Sound.cs" />
+     <Compile Include="Assets\Scripts\StoredVar.cs" />
      <Compile Include="Assets\Scripts\TimedDestroy.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

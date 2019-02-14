@@ -13,7 +13,7 @@ public class GM : MonoBehaviour {
 	public GameObject bricksPrefab2;
 
 	//Control de canvas
-	public int lives = 3;
+	private int lives;
 	public Text livesText;
 	public GameObject gameOver;
 	public GameObject youWon;
@@ -52,9 +52,20 @@ public class GM : MonoBehaviour {
 			Destroy (gameObject);
 		
 		Setup();
-
+		Time.timeScale = 1f;
 		paddlePos.transform.position = new Vector3 (0f, -9.5f, 0f);
 
+		 
+
+
+
+	}
+
+	void Start(){
+		lives = StoredVar.lives;
+		livesText.text = "Lives: " + lives;
+		FindObjectOfType<AudioManager>().Play("Theme");
+	
 	}
 
 
@@ -109,13 +120,12 @@ public class GM : MonoBehaviour {
 			//Esto va a generar un efecto de slowMotion
 			Time.timeScale = .25f;
 			//Invoke ("Reset", resetDelay);
-					
+			Invoke ("NextLevel", resetDelay);		
 			
 		}
 
-
 		
-		if (lives < 1)
+		if (StoredVar.lives < 1)
 		{
 			gameOver.SetActive(true);
 			//Esto va a generar un efecto de slowMotion
@@ -125,16 +135,22 @@ public class GM : MonoBehaviour {
 		
 	}
 
+	void NextLevel(){
+		Application.LoadLevel("Scene02");
+	}
+
 	void Reset()
 	{
 		Time.timeScale = 1f;
 		//Cuando se termine el nivel se va a volver a lodear
-		Application.LoadLevel(Application.loadedLevel);
+		StoredVar.lives = 5;
+		Application.LoadLevel("Scene01");
 	}
 	
 	public void LoseLife()
 	{
 		lives--;
+		StoredVar.lives --;
 		livesText.text = "Lives: " + lives;
 		Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
 		Destroy(clonePaddle);
